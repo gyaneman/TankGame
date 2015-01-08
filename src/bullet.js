@@ -25,9 +25,8 @@ var Bullet = Class.create(Sprite, {
             if (this.frameCounter >= 5) {
                 this.frameCounter = 0;
                 this.image = game.assets['./img/icon0.png'];
-                this.isEnable = false;
                 this.isHit = false;
-                game.rootScene.removeChild(this);
+                this.disable();
             }
             return;
         }
@@ -35,8 +34,9 @@ var Bullet = Class.create(Sprite, {
         || this.x > game.width
         || this.y < 0 - this.height
         || this.y > game.height ) {
-            this.isEnable = false;
-            game.rootScene.removeChild(this);
+            //this.isEnable = false;
+            //game.rootScene.removeChild(this);
+            this.disable();
             return;
         }
         this.x += this.dx;
@@ -73,5 +73,6 @@ var Bullet = Class.create(Sprite, {
     hit:function(){
         this.isHit = true;
         this.image = game.assets['./img/effect0.png'];
+        return 10;
     }
 });

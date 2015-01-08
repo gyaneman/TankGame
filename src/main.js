@@ -20,7 +20,7 @@ window.onload = function(){
 		var map = new Map_1();
 		var player = new Player();
 		var bullet = new Bullet();
-		var enemy = new Enemy(220, 100);
+		var enemy = new Enemy(100, 190, 100);
 		game.addEventListener('sbuttondown', function(){
 			bullet.fire(player.x + 8, player.y + 8, 10*player.directionX, 10*player.directionY);
 		});
@@ -29,7 +29,10 @@ window.onload = function(){
 				return;
 			}
 			if (map.hitTest(bullet.x + 8, bullet.y + 8)) {
-				bullet.hit();
+				bullet.disable();
+			}else if(enemy.isEnable && bullet.intersect(enemy)){
+				//bullet.hit();
+				enemy.damage(bullet.hit());
 			}
 		});
 		map.enable();
