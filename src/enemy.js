@@ -18,8 +18,6 @@ var Enemy = Class.create(Sprite, {
         game.rootScene.addChild(this);
     },
     disable:function(){
-        //this.x = 500;
-        //this.y = 500;
         this.isEnable = false;
         game.rootScene.removeChild(this);
     },
