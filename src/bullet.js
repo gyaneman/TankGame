@@ -73,6 +73,5 @@ var Bullet = Class.create(Sprite, {
     hit:function(){
         this.isHit = true;
         this.image = game.assets['./img/effect0.png'];
-        //this.frame = [0,1,2,3,4,null];
     }
 });

@@ -1,0 +1,7 @@
+#editor
+*.swp
+._*
+*~
+
+#MacOS
+.DS_Store

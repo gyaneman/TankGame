@@ -7,6 +7,7 @@ enchant();
 document.write('<script type="text/javascript" src="./player.js"></script>');
 document.write('<script type="text/javascript" src="./map_1.js"></script>');
 document.write('<script type="text/javascript" src="./bullet.js"></script>');
+document.write('<script type="text/javascript" src="./enemy.js"></script>');
 
 
 window.onload = function(){
@@ -19,6 +20,7 @@ window.onload = function(){
 		var map = new Map_1();
 		var player = new Player();
 		var bullet = new Bullet();
+		var enemy = new Enemy(220, 100);
 		game.addEventListener('sbuttondown', function(){
 			bullet.fire(player.x + 8, player.y + 8, 10*player.directionX, 10*player.directionY);
 		});
@@ -32,6 +34,7 @@ window.onload = function(){
 		});
 		map.enable();
 		player.enable();
+		enemy.enable();
 	}
 	game.start();
 }
