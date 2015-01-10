@@ -5,12 +5,21 @@ var Enemy = Class.create(Sprite, {
         this.frame = 3;
         this.x = x;
         this.y = y;
+        this.dx = 0;
+        this.dy = 0;
+        this.speed = 2;
         this.isEnable = false;
         this.hp = hp;
     },
     onenterframe:function(){
         if (!this.isEnable) {
             return;
+        }
+
+        if (this.dx != 0) {
+            this.x += this.dx;
+        }else if (this.dy != 0) {
+            this.y += this.dy;
         }
     },
     enable:function(){
